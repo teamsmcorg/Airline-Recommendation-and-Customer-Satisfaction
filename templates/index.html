@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Predict AIRLINE</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+ <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+
+  
+<style>
+  ::placeholder {
+    color:rgb(13, 13, 14);
+    opacity:0.8; /* Firefox */
+    font-weight: bold;
+  }
+  </style>
+  
+</head>
+<body style="background-image:url('F:\projects\dataset\plane.png'); 
+background-repeat:no-repeat;
+background-size:cover;
+height:100vh;
+display:flex;
+">
+
+ <div class="login">
+	<h1>Airline Recommendation</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form name="myform" action="{{ url_for('predict')}}"method="post" onsubmit="return(validateform());">
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="rating" placeholder="rating" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="cabin" placeholder="cabin" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="seat_comfort" placeholder="seat_comfort" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="cabin_service" placeholder="cabin_service" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="food_and_bev" placeholder="food_and_bev" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="entertainment" placeholder="entertainment" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="ground_service" placeholder="ground_service" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="value_for_money" placeholder="value_for_money" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="recommended" placeholder="" required="required" /><br>
+        <input type="int" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="satisfaction" placeholder="" required="required" /><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large" style="margin-bottom: 10px;">Predict</button>
+
+        
+        <!--<a href="visual" class="btn btn-primary btn-block btn-large" style="text-decoration: none;">Visualize</a>-->
+    </form>
+    <div>
+     <b><p>recommended airline</p> <p style="width: 100%; font-size: medium; color:rgb(6, 11, 118);">{{ prediction_text }}<br></p></b>
+     </div>
+ </div>
+
+
+
+</body>
+</html>
